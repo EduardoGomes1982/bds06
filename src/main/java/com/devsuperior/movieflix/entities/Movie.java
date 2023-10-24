@@ -3,6 +3,7 @@ package com.devsuperior.movieflix.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,6 +44,7 @@ public class Movie {
     private String imgUrl;
 
     @NonNull
+    @Column(columnDefinition = "text")
     private String synopsis;
 
     @NonNull
