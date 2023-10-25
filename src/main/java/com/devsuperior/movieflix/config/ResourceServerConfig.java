@@ -24,7 +24,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	private static final String[] VISITOR_OR_MEMBER = { "/users/profile/**", "/genres/**", "/movies/**" };
 
-	//private static final String[] VISITOR_OR_MEMBER_ACCESS = { "/movies/**" };
+	private static final String[] MEMBER = { "/reviews/**" };
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -38,6 +38,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 		http.authorizeRequests(requests -> requests
 				.antMatchers(PUBLIC).permitAll()
-				.antMatchers(VISITOR_OR_MEMBER).hasAnyRole("MEMBER", "VISITOR"));
+				.antMatchers(VISITOR_OR_MEMBER).hasAnyRole("MEMBER", "VISITOR")
+				.antMatchers(MEMBER).hasAnyRole("MEMBER"));
 	}
 }
